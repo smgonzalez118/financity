@@ -18,7 +18,7 @@ def generate_portfolio(request):
     if request.method == 'POST':
         print(f"La data llega así: {request.data}")
     
-        rta = optimizarMonteCarlo(activos = (request.data["activos"]), period = "5y", q=1000, metrica = "rentabilidad")
+        rta = optimizarMonteCarlo(activos = request.data["activos"], period = "5y", q=1000, metrica = request.data["metrica"])
         rta = json.dumps(rta)
         return Response({"activos elegidos": request.data, "Objetivo": "Cartera optima", "carteraOptima": rta})
         #return Response({"message": "Algo salió mal!", "enviaste" : request.data})

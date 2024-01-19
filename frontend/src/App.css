@@ -191,3 +191,37 @@ form button {
 .redf {
 	color: rgba(241, 54, 7, 0.859);
 }
+
+.results-table {
+	margin: 1em;
+	text-align: center;
+	background-color: rgb(1, 21, 32);
+	border: 1px solid rgba(0, 140, 255, 0.473);
+}
+
+.results-table td {
+	padding: 1em;
+	border: 1px solid rgba(0, 47, 255, 0);
+}
+
+.results-table th {
+	background-color: rgba(51, 0, 255, 0.191);
+	padding: 1em;
+}
+
+label {
+	color: white;
+	margin: 1em;
+}
+
+.up-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-right: 25%;
+	padding-left: 25%;
+}
+
+#metric {
+	margin-bottom: 10%;
+}
