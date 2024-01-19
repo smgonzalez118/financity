@@ -24,6 +24,10 @@ const Portfolio = () => {
 		console.log(`${e.target.selector.value} agregado!`);
 	};
 
+	const enviarReq = (e) => {
+		console.log('Solicitud enviada');
+	};
+
 	return (
 		<>
 			<h1>OPTIMIZA TU PORTAFOLIO</h1>
@@ -43,6 +47,9 @@ const Portfolio = () => {
 				</select>
 				<input type='submit' value='Agregar!' />
 			</form>
+			<button type='button' onClick={(e) => enviarReq(e)}>
+				OBTENER PORTAFOLIO OPTIMIZADO
+			</button>
 
 			<div>
 				{repited ? <h5 className='redf'>Activo ya agregado </h5> : ''}
