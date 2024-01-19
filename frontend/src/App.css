@@ -165,9 +165,33 @@ html {
 
 @media (max-width: 900px) {
 	html {
-		margin-left: 25%;
+		margin-left: 0%;
+		margin-right: 0%;
+		margin-top: 5%;
+	}
+	h1,
+	h3 {
+		font-size: medium;
+		text-align: center;
+		margin-left: 27%;
 		margin-right: 5%;
 		margin-top: 5%;
+	}
+	form-port {
+		padding: 0;
+	}
+
+	.results-table {
+		margin: 0;
+		padding: 0;
+	}
+	.results {
+		padding: 0;
+		margin-left: 0%;
+	}
+
+	.down-container {
+		margin-left: 25%;
 	}
 }
 
@@ -185,7 +209,7 @@ form button {
 }
 
 #informative {
-	margin-top: 4em;
+	margin-top: 1em;
 }
 
 .redf {
@@ -224,4 +248,51 @@ label {
 
 #metric {
 	margin-bottom: 10%;
+}
+
+#final-button {
+	margin-right: 25%;
+	margin-left: 25%;
+	width: 50%;
+}
+
+.down-container {
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+	color: #0fe0ef;
+}
+
+select,
+input,
+button {
+	padding: 0.5em;
+}
+
+button,
+#submit {
+	background-color: rgb(2, 68, 88);
+	color: white;
+	font-weight: bold;
+	border-radius: 0.5em;
+}
+
+.selectors {
+	background-color: black;
+	color: white;
+}
+
+button:hover,
+#submit:hover {
+	background-color: #0fe0ef;
+	color: rgb(2, 68, 88);
+	transition: 500ms all;
+}
+
+button:active,
+#submit:active {
+	background-color: rgb(0, 20, 131);
+	color: rgb(226, 237, 240);
 }

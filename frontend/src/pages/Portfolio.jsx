@@ -69,7 +69,7 @@ const Portfolio = () => {
 			<form id='form-port' onSubmit={(e) => agregar(e)}>
 				<div className='up-container'>
 					<label htmlFor='metric'>Selecciona la métrica </label>
-					<select name='metric' id='metric'>
+					<select name='metric' id='metric' className='selectors'>
 						{metrics.map((metrica, i) => (
 							<option value={metrica.value} key={i}>
 								{' '}
@@ -78,7 +78,8 @@ const Portfolio = () => {
 						))}
 					</select>
 
-					<select name='selector' id='selector'>
+					<label htmlFor='selector'>Selecciona los activos </label>
+					<select name='selector' id='selector' className='selectors'>
 						{activos.map((activo, i) => (
 							<option value={activo.value} key={i}>
 								{' '}
@@ -86,24 +87,29 @@ const Portfolio = () => {
 							</option>
 						))}
 					</select>
-					<input type='submit' value='Agregar!' />
+					<input type='submit' value='Agregar!' id='submit' />
+					{repited ? <h5 className='redf'>Activo ya agregado </h5> : ''}
 				</div>
 			</form>
-			<button type='button' onClick={(e) => handlePost(e)}>
+
+			<button type='button' id='final-button' onClick={(e) => handlePost(e)}>
 				OBTENER PORTAFOLIO OPTIMIZADO
 			</button>
 
-			{repited ? <h5 className='redf'>Activo ya agregado </h5> : ''}
-
-			<div className='container'>
+			<div className='down-container'>
 				<div>
 					<h4 id='informative'>Activos agregados al portafolio: </h4>
 					<ul>
 						{selected.map((elem, i) => (
-							<li key={i}>{elem}</li>
+							<li key={i}>
+								{activos.map((dic, i) => {
+									if (dic['value'] == elem) {
+										return dic['label'];
+									}
+								})}
+							</li>
 						))}
 					</ul>
-					<div>Data a enviar {JSON.stringify(selected)}</div>
 				</div>
 
 				<div className='results'>
@@ -116,7 +122,13 @@ const Portfolio = () => {
 							{carteraOpt &&
 								Object.keys(carteraOpt).map((activo, i) => (
 									<tr key={i}>
-										<td>{activo}</td>
+										<td>
+											{activos.map((dic, i) => {
+												if (dic['value'] == activo) {
+													return dic['label'];
+												}
+											})}
+										</td>
 										<td>{carteraOpt[activo]}</td>
 									</tr>
 								))}
