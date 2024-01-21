@@ -8,6 +8,7 @@ const Router = () => {
 			<Aside></Aside>
 			<Routes>
 				<Route path='#portfolio' element={<Portfolio />} />
+				<Route path='/' element={<Portfolio />} />
 			</Routes>
 		</BrowserRouter>
 	);
