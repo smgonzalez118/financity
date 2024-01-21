@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import portfolio from '../assets/portfolio.svg';
 import chevron from '../assets/chevron.svg';
 import dashboard from '../assets/dashboard.svg';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 import reports from '../assets/reports.svg';
 import analytics from '../assets/analytics.svg';
 
