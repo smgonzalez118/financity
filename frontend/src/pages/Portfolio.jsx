@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
+import { companies } from '../assets/companies';
 
 const Portfolio = () => {
 	const [selected, setSelected] = useState([]);
@@ -8,6 +9,7 @@ const Portfolio = () => {
 	const [repited, setRepited] = useState(false);
 	const [carteraOpt, setCarteraOpt] = useState();
 	const [metric, setMetric] = useState();
+	const [loader, setLoader] = useState();
 
 	const activos = [
 		{ value: 'KO', label: 'Coca Cola Company' },
@@ -40,6 +42,7 @@ const Portfolio = () => {
 
 	const handlePost = (e) => {
 		e.preventDefault();
+		setLoader(true);
 		axios
 			.post('http://127.0.0.1:8000/cartera/', {
 				activos: selected,
@@ -49,6 +52,7 @@ const Portfolio = () => {
 				const save = JSON.parse(response.data.carteraOptima);
 				setCarteraOpt(save);
 				console.log(carteraOpt);
+				setLoader(false);
 			});
 	};
 
@@ -65,6 +69,7 @@ const Portfolio = () => {
 				Selecciona los activos de renta variable a incluir en tu portafolio y la
 				métrica a optimizar (riesgo, rentabilidad, relación riesgo-rentabilidad){' '}
 			</h3>
+			<div className='loader'>{loader && 'Obteniendo cartera óptima ...'}</div>
 
 			<form id='form-port' onSubmit={(e) => agregar(e)}>
 				<div className='up-container'>
@@ -80,14 +85,14 @@ const Portfolio = () => {
 
 					<label htmlFor='selector'>Selecciona los activos </label>
 					<select name='selector' id='selector' className='selectors'>
-						{activos.map((activo, i) => (
-							<option value={activo.value} key={i}>
+						{companies.map((activo, i) => (
+							<option value={activo.ticker} key={i}>
 								{' '}
-								{activo.label}
+								{activo.name}
 							</option>
 						))}
 					</select>
-					<input type='submit' value='Agregar!' id='submit' />
+					<input type='submit' value='Agregar activo' id='submit' />
 					{repited ? <h5 className='redf'>Activo ya agregado </h5> : ''}
 				</div>
 			</form>
@@ -102,38 +107,39 @@ const Portfolio = () => {
 					<ul>
 						{selected.map((elem, i) => (
 							<li key={i}>
-								{activos.map((dic, i) => {
-									if (dic['value'] == elem) {
-										return dic['label'];
+								{companies.map((dic, i) => {
+									if (dic['ticker'] == elem) {
+										return dic['name'];
 									}
 								})}
 							</li>
 						))}
 					</ul>
 				</div>
-
 				<div className='results'>
-					<table className='results-table'>
-						<tr>
-							<th>Activo</th>
-							<th>Ponderacion %</th>
-						</tr>
-						<tbody>
-							{carteraOpt &&
-								Object.keys(carteraOpt).map((activo, i) => (
-									<tr key={i}>
-										<td>
-											{activos.map((dic, i) => {
-												if (dic['value'] == activo) {
-													return dic['label'];
-												}
-											})}
-										</td>
-										<td>{carteraOpt[activo]}</td>
-									</tr>
-								))}
-						</tbody>
-					</table>
+					{carteraOpt && (
+						<table className='results-table'>
+							<tr>
+								<th>Activo</th>
+								<th>Ponderacion %</th>
+							</tr>
+							<tbody>
+								{carteraOpt &&
+									Object.keys(carteraOpt).map((activo, i) => (
+										<tr key={i}>
+											<td>
+												{companies.map((dic, i) => {
+													if (dic['ticker'] == activo) {
+														return dic['name'];
+													}
+												})}
+											</td>
+											<td>{carteraOpt[activo]}</td>
+										</tr>
+									))}
+							</tbody>
+						</table>
+					)}
 				</div>
 			</div>
 		</>
