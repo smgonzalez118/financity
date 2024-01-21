@@ -1,5 +1,11 @@
 import React, { useInsertionEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+import portfolio from '../assets/portfolio.svg';
+import chevron from '../assets/chevron.svg';
+import dashboard from '../assets/dashboard.svg';
+import logo from '../assets/logo.svg';
+import reports from '../assets/reports.svg';
+import analytics from '../assets/analytics.svg';
 
 const Aside = () => {
 	const handleExpand = () => {
@@ -18,9 +24,9 @@ const Aside = () => {
 		<nav>
 			<div className='sidebar-top'>
 				<span className='expand-btn' onClick={handleExpand}>
-					<img src='assets/chevron.svg' alt='Chevron' />
+					<img src={chevron} alt='arrow' />
 				</span>
-				<img src='assets/logo.png' className='logo' alt='Laplace Logo' />
+				<img src={logo} className='logo' alt='Laplace Logo' />
 				<h3 className='hide'> Financity </h3>
 			</div>
 			<div className='sidebar-links'>
@@ -28,7 +34,7 @@ const Aside = () => {
 					<li>
 						<NavLink to='/home' onClick={(event) => handleActive(event)}>
 							<div className='icon'>
-								<img src='src/assets/portfolio.svg' title='Portfolio Icon' />
+								<img src={portfolio} title='Portfolio Icon' />
 							</div>
 							<span className='link hide'>Portfolio</span>
 						</NavLink>
@@ -36,7 +42,7 @@ const Aside = () => {
 					<li>
 						<NavLink to='/analytics' onClick={(event) => handleActive(event)}>
 							<div className='icon'>
-								<img src='src/assets/analytics.svg' title='Analytics Icon' />
+								<img src={analytics} title='Analytics Icon' />
 							</div>
 							<span className='link hide'>Analytics</span>
 						</NavLink>
@@ -48,7 +54,7 @@ const Aside = () => {
 							onClick={(event) => handleActive(event)}
 						>
 							<div className='icon'>
-								<img src='src/assets/dashboard.svg' title='Performance Icon' />
+								<img src={dashboard} title='Performance Icon' />
 							</div>
 							<span className='link hide'>Performance</span>
 						</a>
@@ -60,7 +66,7 @@ const Aside = () => {
 							onClick={(event) => handleActive(event)}
 						>
 							<div className='icon'>
-								<img src='src/assets/reports.svg' title='Reports Icon' />
+								<img src={reports} title='Reports Icon' />
 							</div>
 							<span className='link hide'>Reports</span>
 						</a>
