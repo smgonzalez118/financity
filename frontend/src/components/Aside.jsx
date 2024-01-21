@@ -18,6 +18,7 @@ const Aside = () => {
 			elem.classList.remove('active');
 		});
 		event.currentTarget.classList.toggle('active');
+		document.body.classList.toggle('collapsed');
 	};
 
 	return (
