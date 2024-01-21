@@ -14,6 +14,7 @@ function App() {
 				<Aside></Aside>
 				<Routes>
 					<Route path='/home' element={<Portfolio />} />
+					<Route path='/' element={<Portfolio />} />
 					<Route path='/analytics' element={<Analytics />} />
 				</Routes>
 			</BrowserRouter>
