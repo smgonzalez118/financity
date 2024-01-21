@@ -20,6 +20,6 @@ from vitebackend import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("recomendacion/", views.recomend),
+    path('prueba/', views.prueba),
     path("cartera/", views.generate_portfolio)
 ]

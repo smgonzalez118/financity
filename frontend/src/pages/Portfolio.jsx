@@ -44,7 +44,7 @@ const Portfolio = () => {
 		e.preventDefault();
 		setLoader(true);
 		axios
-			.post('http://127.0.0.1:8000/cartera/', {
+			.post('https://smgonzalez118.pythonanywhere.com/cartera/', {
 				activos: selected,
 				metrica: metric,
 			})

@@ -5,12 +5,11 @@ from rest_framework.response import Response
 from vitebackend.quant import optimizarMonteCarlo, getDataYfMulti, getDataYf
 import json
 
-@api_view()
-def recomend(request):
-    return Response({"mensaje": "COMPRAR!"})
 
-
-
+@api_view(['GET'])
+def prueba(request):
+    if request.method == 'GET':
+        return Response({"message" : "es una prueba"})
 
 
 @api_view(['POST'])
