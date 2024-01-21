@@ -28,7 +28,7 @@ const Aside = () => {
 					<li>
 						<NavLink to='/home' onClick={(event) => handleActive(event)}>
 							<div className='icon'>
-								<img src='assets/portfolio.svg' title='Portfolio Icon' />
+								<img src='src/assets/portfolio.svg' title='Portfolio Icon' />
 							</div>
 							<span className='link hide'>Portfolio</span>
 						</NavLink>
@@ -36,7 +36,7 @@ const Aside = () => {
 					<li>
 						<NavLink to='/analytics' onClick={(event) => handleActive(event)}>
 							<div className='icon'>
-								<img src='assets/analytics.svg' title='Analytics Icon' />
+								<img src='src/assets/analytics.svg' title='Analytics Icon' />
 							</div>
 							<span className='link hide'>Analytics</span>
 						</NavLink>
@@ -48,7 +48,7 @@ const Aside = () => {
 							onClick={(event) => handleActive(event)}
 						>
 							<div className='icon'>
-								<img src='assets/dashboard.svg' title='Performance Icon' />
+								<img src='src/assets/dashboard.svg' title='Performance Icon' />
 							</div>
 							<span className='link hide'>Performance</span>
 						</a>
@@ -60,7 +60,7 @@ const Aside = () => {
 							onClick={(event) => handleActive(event)}
 						>
 							<div className='icon'>
-								<img src='assets/reports.svg' title='Reports Icon' />
+								<img src='src/assets/reports.svg' title='Reports Icon' />
 							</div>
 							<span className='link hide'>Reports</span>
 						</a>
