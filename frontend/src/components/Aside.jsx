@@ -61,16 +61,12 @@ const Aside = () => {
 						</a>
 					</li>
 					<li>
-						<a
-							href='#reports'
-							title='Reports Link'
-							onClick={(event) => handleActive(event)}
-						>
+						<NavLink to='/sourcecode' onClick={(event) => handleActive(event)}>
 							<div className='icon'>
-								<img src={reports} title='Reports Icon' />
+								<img src={reports} title='Source Code Icon' />
 							</div>
-							<span className='link hide'>Reports</span>
-						</a>
+							<span className='link hide'>Source Code</span>
+						</NavLink>
 					</li>
 				</ul>
 			</div>
