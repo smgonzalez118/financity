@@ -69,7 +69,12 @@ const Portfolio = () => {
 				Selecciona los activos de renta variable a incluir en tu portafolio y la
 				métrica a optimizar (riesgo, rentabilidad, relación riesgo-rentabilidad){' '}
 			</h3>
-			<div className='loader'>{loader && 'Obteniendo cartera óptima ...'}</div>
+			{loader && (
+				<>
+					<div class='spinner'></div>
+					<span id='text-loader'>Obteniendo cartera óptima ...</span>
+				</>
+			)}
 
 			<form id='form-port' onSubmit={(e) => agregar(e)}>
 				<div className='up-container'>

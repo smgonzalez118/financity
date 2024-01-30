@@ -325,3 +325,30 @@ button:active,
 	border-radius: 2em;
 	margin-bottom: 2em;
 }
+
+.spinner {
+	margin-top: 1em;
+	border: 4px solid rgba(0, 0, 0, 0.1);
+	width: 3em;
+	height: 3em;
+	border-radius: 50%;
+	border-left-color: rgb(0, 229, 255);
+
+	animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+		border-left-color: rgb(0, 255, 140);
+	}
+
+	100% {
+		transform: rotate(360deg);
+		border-left-color: rgb(221, 0, 255);
+	}
+}
+
+#text-loader {
+	color: rgb(0, 229, 255);
+}
