@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
 import { companies } from '../assets/companies';
@@ -10,6 +10,10 @@ const Portfolio = () => {
 	const [carteraOpt, setCarteraOpt] = useState();
 	const [metric, setMetric] = useState();
 	const [loader, setLoader] = useState();
+
+	useEffect(() => {
+		document.body.classList.toggle('collapsed');
+	}, []);
 
 	const activos = [
 		{ value: 'KO', label: 'Coca Cola Company' },
@@ -69,6 +73,31 @@ const Portfolio = () => {
 				Selecciona los activos de renta variable a incluir en tu portafolio y la
 				métrica a optimizar (riesgo, rentabilidad, relación riesgo-rentabilidad){' '}
 			</h3>
+			<div className='results'>
+				{carteraOpt && (
+					<table className='results-table'>
+						<tr>
+							<th>Activo</th>
+							<th>Ponderacion %</th>
+						</tr>
+						<tbody>
+							{carteraOpt &&
+								Object.keys(carteraOpt).map((activo, i) => (
+									<tr key={i}>
+										<td>
+											{companies.map((dic, i) => {
+												if (dic['ticker'] == activo) {
+													return dic['name'];
+												}
+											})}
+										</td>
+										<td>{carteraOpt[activo]}</td>
+									</tr>
+								))}
+						</tbody>
+					</table>
+				)}
+			</div>
 			{loader && (
 				<>
 					<div class='spinner'></div>
@@ -120,31 +149,6 @@ const Portfolio = () => {
 							</li>
 						))}
 					</ul>
-				</div>
-				<div className='results'>
-					{carteraOpt && (
-						<table className='results-table'>
-							<tr>
-								<th>Activo</th>
-								<th>Ponderacion %</th>
-							</tr>
-							<tbody>
-								{carteraOpt &&
-									Object.keys(carteraOpt).map((activo, i) => (
-										<tr key={i}>
-											<td>
-												{companies.map((dic, i) => {
-													if (dic['ticker'] == activo) {
-														return dic['name'];
-													}
-												})}
-											</td>
-											<td>{carteraOpt[activo]}</td>
-										</tr>
-									))}
-							</tbody>
-						</table>
-					)}
 				</div>
 			</div>
 		</>
