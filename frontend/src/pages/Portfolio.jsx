@@ -10,6 +10,7 @@ const Portfolio = () => {
 	const [carteraOpt, setCarteraOpt] = useState();
 	const [metric, setMetric] = useState();
 	const [loader, setLoader] = useState();
+	const [error, setError] = useState(false);
 
 	useEffect(() => {
 		document.body.classList.toggle('collapsed');
@@ -57,6 +58,9 @@ const Portfolio = () => {
 				setCarteraOpt(save);
 				console.log(carteraOpt);
 				setLoader(false);
+			})
+			.catch((err) => {
+				setError(true);
 			});
 	};
 
@@ -74,6 +78,12 @@ const Portfolio = () => {
 				métrica a optimizar (riesgo, rentabilidad, relación riesgo-rentabilidad){' '}
 			</h3>
 			<div className='results'>
+				{error && (
+					<span class='error'>
+						'Se produjo un error en el servidor. Seleccione otros activos o
+						vuelva a intentarlo'
+					</span>
+				)}
 				{carteraOpt && (
 					<table className='results-table'>
 						<tr>

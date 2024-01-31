@@ -355,3 +355,7 @@ button:active,
 #text-loader {
 	color: rgb(0, 229, 255);
 }
+
+.error {
+	color: red;
+}
