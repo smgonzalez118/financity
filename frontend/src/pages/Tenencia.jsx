@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const Tenencia = () => {
 	const [data, setData] = useState('');
+    
     useEffect(() => {
         axios.get('https://smgonzalez118.pythonanywhere.com/tenencia/')
         .then(response => {
@@ -18,9 +19,9 @@ const Tenencia = () => {
 
     return (
 		<>
-			<h1>Sección sin funcionalidad</h1>
+			<h1>Tenencia</h1>
 			<h3>
-				{data? data : ""}
+				{data? data : "Cargando..."}
 			</h3>
 		</>
 	);
