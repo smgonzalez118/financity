@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('prueba/', views.prueba),
     path("cartera/", views.generate_portfolio),
-    path("tenencia/", views.get_tenencia_ficticia)
+    path("tenencia/", views.get_tenencia)
 ]

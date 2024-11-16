@@ -28,7 +28,7 @@ def generate_portfolio(request):
 
 
 @api_view(['GET'])
-def get_tenencia_ficticia(request):
+def get_tenencia(request):
     if request.method == 'GET':
         activos=['DOT-USD', 'ADA-USD', 'MATIC-USD', 'HBAR-USD', 'ALGO-USD', 
          'VET-USD', 'XTZ-USD', 'XLM-USD', 'ZIL-USD', 'ONT-USD', 'OGN-USD', 'XRP-USD']
