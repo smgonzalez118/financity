@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Aside from './components/Aside.jsx';
 import Analytics from './pages/Analytics.jsx';
 import SourceCode from './pages/SourceCode.jsx';
-import Tenencia from './pages/Tenencia.jsx';
+import Tenencia from './pages/tenencia.jsx';
 
 function App() {
 	return (
