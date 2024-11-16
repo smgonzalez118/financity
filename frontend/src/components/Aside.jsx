@@ -68,14 +68,6 @@ const Aside = () => {
 							<span className='link hide'>Source Code</span>
 						</NavLink>
 					</li>
-					<li>
-						<NavLink to='/tenencia' onClick={(event) => handleActive(event)}>
-							<div className='icon'>
-								<img src={reports} title='Source Code Icon' />
-							</div>
-							<span className='link hide'>Tenenc</span>
-						</NavLink>
-					</li>
 				</ul>
 			</div>
 		</nav>
