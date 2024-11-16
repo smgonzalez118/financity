@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Aside from './components/Aside.jsx';
 import Analytics from './pages/Analytics.jsx';
 import SourceCode from './pages/SourceCode.jsx';
+import Tenencia from './pages/tenencia.jsx';
 
 function App() {
 	return (
@@ -17,7 +18,9 @@ function App() {
 					<Route path='/home' element={<Portfolio />} />
 					<Route path='/analytics' element={<Analytics />} />
 					<Route path='/sourcecode' element={<SourceCode />} />
+					<Route path='/tenencia' element={<Tenencia />} />
 					<Route path='/' element={<Portfolio />} />
+
 				</Routes>
 			</BrowserRouter>
 		</>
