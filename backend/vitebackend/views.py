@@ -40,16 +40,19 @@ def get_tenencia(request):
         tenencias = {}
 
         for activo in activos:
-            precio = yf.download(f"{activo}", period="5d")['Close'][activo].iloc[-1]
-            #precio = yf.download(f'{activo}', desde, hasta)['Adj Close'].iloc[-1]
-            tenencias[activo] = precio * nominales[activo]
+            try:
+                precio = yf.download(f"{activo}", period="5d")['Close'][activo].iloc[-1]
+                #precio = yf.download(f'{activo}', desde, hasta)['Adj Close'].iloc[-1]
+                tenencias[activo] = precio * nominales[activo]
+            except:
+                continue
 
-            arr = np.array(tenencias)
+        arr = np.array(tenencias)
 
-            valores_tenencia = list(tenencias.values())
-            arr = np.array(valores_tenencia)
-            suma = round(arr.sum(),2)
+        valores_tenencia = list(tenencias.values())
+        arr = np.array(valores_tenencia)
+        suma = round(arr.sum(),2)
 
-            msg = f'La tenencia al día de hoy es de U$D {suma}'
+        msg = f'La tenencia al día de hoy es de U$D {suma}'
 
         return Response({"message" : msg})
