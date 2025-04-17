@@ -29,16 +29,16 @@ def generate_portfolio(request):
 
 @api_view(['GET'])
 def get_tenencia(request):
-    if request.method == 'GET':
-        activos=['DOT-USD', 'ADA-USD', 'MATIC-USD', 'HBAR-USD', 'ALGO-USD', 
+    activos=['DOT-USD', 'ADA-USD', 'MATIC-USD', 'HBAR-USD', 'ALGO-USD', 
          'VET-USD', 'XTZ-USD', 'XLM-USD', 'ZIL-USD', 'ONT-USD', 'OGN-USD', 'XRP-USD']
 
-        nominales = {'DOT-USD' : 19.8, 'ADA-USD' : 272.9, 'MATIC-USD' : 139, 'HBAR-USD' : 837.50, 
-                    'ALGO-USD' : 169.1, 'VET-USD' : 2974.10, 'XTZ-USD' : 32.2, 
-                    'XLM-USD' : 454.30, 'ZIL-USD' : 1869.30, 'ONT-USD' : 68.6, 'OGN-USD' : 25.3, 'XRP-USD' : 1789.71}
+    nominales = {'DOT-USD' : 19.8, 'ADA-USD' : 272.9, 'MATIC-USD' : 139, 'HBAR-USD' : 837.50, 
+        'ALGO-USD' : 169.1, 'VET-USD' : 2974.10, 'XTZ-USD' : 32.2, 
+        'XLM-USD' : 454.30, 'ZIL-USD' : 1869.30, 'ONT-USD' : 68.6, 'OGN-USD' : 25.3, 'XRP-USD' : 1789.71}
 
-        tenencias = {}
+    tenencias = {}
 
+    if request.method == 'GET':
         for activo in activos:
             try:
                 precio = yf.download(f"{activo}", period="5d")['Close'][activo][-1]
@@ -55,4 +55,4 @@ def get_tenencia(request):
 
         msg = f'La tenencia al día de hoy es de U$D {suma}'
 
-        return Response({"message" : msg})
+        return Response({"message" : msg, "tenencias" : tenencias})
