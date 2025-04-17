@@ -40,7 +40,7 @@ def get_tenencia(request):
         tenencias = {}
 
         for activo in activos:
-            precio = yf.download(f"{activo}", period="5d")['Adj Close'].iloc[-1]
+            precio = yf.download(f"{activo}", period="5d")['Close'][activo].iloc[-1]
             #precio = yf.download(f'{activo}', desde, hasta)['Adj Close'].iloc[-1]
             tenencias[activo] = precio * nominales[activo]
 
