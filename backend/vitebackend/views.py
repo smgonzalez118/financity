@@ -29,21 +29,19 @@ def generate_portfolio(request):
 
 @api_view(['GET'])
 def get_tenencia(request):
-    activos=['DOT-USD', 'ADA-USD', 'MATIC-USD', 'HBAR-USD', 'ALGO-USD', 
-         'VET-USD', 'XTZ-USD', 'XLM-USD', 'ZIL-USD', 'ONT-USD', 'OGN-USD', 'XRP-USD']
+    activos=['DOT-USD', "MATIC-USD", 'ADA-USD', 'HBAR-USD', 'ALGO-USD',
+    'VET-USD', 'XTZ-USD', 'XLM-USD', 'ZIL-USD', 'ONT-USD', 'OGN-USD', 'XRP-USD']
 
-    nominales = {'DOT-USD' : 19.8, 'ADA-USD' : 272.9, 'MATIC-USD' : 139, 'HBAR-USD' : 837.50, 
-        'ALGO-USD' : 169.1, 'VET-USD' : 2974.10, 'XTZ-USD' : 32.2, 
-        'XLM-USD' : 454.30, 'ZIL-USD' : 1869.30, 'ONT-USD' : 68.6, 'OGN-USD' : 25.3, 'XRP-USD' : 1789.71}
+    nominales = {'DOT-USD' : 19.8, "MATIC-USD": 139, 'ADA-USD' : 272.9, 'HBAR-USD' : 837.50, 'ALGO-USD' : 169.1,
+    'VET-USD' : 2974.10, 'XTZ-USD' : 32.2, 'XLM-USD' : 454.30, 'ZIL-USD' : 1869.30, 'ONT-USD' : 68.6, 'OGN-USD' : 25.3, 'XRP-USD' : 1789.71}
 
     tenencias = {}
 
     if request.method == 'GET':
         for activo in activos:
             try:
-                precio = yf.download(f"{activo}", period="5d")['Close'][activo][-1]
-                #precio = yf.download(f'{activo}', desde, hasta)['Adj Close'].iloc[-1]
-                tenencias[activo] = precio * nominales[activo]
+                precio = yf.download(activo, period="5d")['Close'][activo].iloc[-1]
+                tenencias[activo] = round(precio * nominales[activo],2)
             except:
                 continue
 
