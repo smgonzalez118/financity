@@ -32,8 +32,8 @@ def get_tenencia(request):
     activos=['DOT-USD', "MATIC-USD", 'ADA-USD', 'HBAR-USD', 'ALGO-USD',
     'VET-USD', 'XTZ-USD', 'XLM-USD', 'ZIL-USD', 'ONT-USD', 'OGN-USD', 'XRP-USD']
 
-    nominales = {'DOT-USD' : 19.8, "MATIC-USD": 139, 'ADA-USD' : 272.9, 'HBAR-USD' : 837.50, 'ALGO-USD' : 169.1,
-    'VET-USD' : 2974.10, 'XTZ-USD' : 32.2, 'XLM-USD' : 454.30, 'ZIL-USD' : 1869.30, 'ONT-USD' : 68.6, 'OGN-USD' : 25.3, 'XRP-USD' : 1789.71}
+    nominales = {'DOT-USD' : 1.18, "MATIC-USD": 139, 'ADA-USD' : 272.9, 'HBAR-USD' : 837.50, 'ALGO-USD' : 169.1,
+    'VET-USD' : 2974.10, 'XTZ-USD' : 32.2, 'XLM-USD' : 629.61, 'ZIL-USD' : 1869.30, 'ONT-USD' : 68.6, 'OGN-USD' : 25.3, 'XRP-USD' : 1801.31}
 
     tenencias = {}
 
